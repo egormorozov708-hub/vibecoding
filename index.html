@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>egormorozov708-hub</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style>
+  body {
+    background-color: #0d1117;
+  }
+  .file-row:hover {
+    background-color: #161b22;
+  }
+</style>
+</head>
+<body class="min-h-screen text-gray-200 font-sans">
+  <div class="max-w-5xl mx-auto mt-10 px-4">
+    <!-- Header -->
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center font-bold text-white">
+        🤖
+      </div>
+      <h1 class="text-lg font-semibold text-white">egormorozov708-hub</h1>
+      <span class="text-gray-500 text-sm">/ файлы проекта</span>
+    </div>
+    <!-- Repo box -->
+    <div class="border border-gray-700 rounded-md overflow-hidden">
+      <!-- Top bar -->
+      <div class="flex items-center justify-between bg-[#161b22] px-4 py-3 border-b border-gray-700">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center text-sm">🤖</div>
+          <span class="font-semibold text-white text-sm">egormorozov708-hub</span>
+          <span class="text-gray-500 text-sm hidden sm:inline">Добавляйте файлы через загрузку.</span>
+        </div>
+        <div class="flex items-center gap-4 text-gray-400 text-xs">
+          <span>dbde986 · 1 минуту назад</span>
+          <span class="flex items-center gap-1">🕒 12 подтверждений</span>
+        </div>
+      </div>
+      <!-- File list -->
+      <ul id="file-list" class="divide-y divide-gray-800">
+        <!-- items injected by JS -->
+      </ul>
+    </div>
+    <p class="text-gray-600 text-xs mt-6 text-center">Навигация сгенерирована автоматически</p>
+  </div>
+<script>
+  const files = [
+    { name: "Qwen.html",      desc: "Добавляйте файлы через загрузку.", time: "4 дня назад" },
+    { name: "Qwenvp.html",    desc: "Добавляйте файлы через загрузку.", time: "4 дня назад" },
+    { name: "YaGPT.html",     desc: "Создайте файл YaGPT.html",         time: "вчера" },
+    { name: "kypcop.html",    desc: "Создать файл cursor.html",         time: "вчера" },
+    { name: "openclaw.html",  desc: "Добавляйте файлы через загрузку.", time: "1 минуту назад" },
+    { name: "zai.html",       desc: "Добавляйте файлы через загрузку.", time: "4 дня назад" },
+  ];
+  const fileIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-4 h-4 fill-gray-500 flex-shrink-0">
+      <path d="M2 1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 8 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688a.252.252 0 0 0-.011-.013l-2.914-2.914a.25.25 0 0 0-.013-.011Z"></path>
+    </svg>`;
+  const list = document.getElementById('file-list');
+  files.forEach(file => {
+    const li = document.createElement('li');
+    li.className = "file-row flex items-center justify-between px-4 py-2.5 text-sm transition-colors";
+    li.innerHTML = `
+      <a href="${file.name}" class="flex items-center gap-2 text-gray-200 hover:text-blue-400 hover:underline min-w-[160px]">
+        ${fileIcon}
+        <span>${file.name}</span>
+      </a>
+      <span class="text-gray-500 flex-1 px-4 truncate hidden sm:block">${file.desc}</span>
+      <span class="text-gray-500 whitespace-nowrap text-xs">${file.time}</span>
+    `;
+    list.appendChild(li);
+  });
+</script>
+</body>
+</html>
